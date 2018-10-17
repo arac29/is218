@@ -15,7 +15,7 @@ $arr=array('First name'=>$first,
 			'Password'=>$pass);
 
 foreach($arr as $key => $value){
-	if ( $value==""){ echo "<br><b>ERROR: $key is empty<br></b>";}
+	if ( empty($value)){ echo "<br><b>ERROR: $key is empty<br></b>";}
 	else if ($key=='Email' && !strpos($value,'@') ){ 
 		echo"<br><b>ERROR: no @ in $key<br></b>";}
 	else if($key=="Password" && strlen($value)<8 ){
