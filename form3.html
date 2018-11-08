@@ -1,8 +1,44 @@
-<html> 
-<form action="form3.php" > 
-	Question Name <input type=text name="name"><br>
-	Question Body: <textarea name="body"></textarea><br>
-	Question Skills <input type=text name="skills"><br>	
-	<input type=submit>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Question</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+
+
+	<div class="container-contact">
+
+		<div class="wrap-contact">
+			<form class="contact-form validate-form" action="form3.php">
+				<span class="contact-form-title">
+					Enter Question
+				</span>
+
+				<div class="wrap-input validate-input" data-validate="Enter question name">
+					<input class="input" type="text" name="qname" placeholder="Question Name">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate="Enter question body">
+					<input class="input" type="text" name="body" placeholder="Question Body">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate = "Enter skills">
+					<input class="input" type="text" name="skills" placeholder="Skills">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="container-contact-form-btn">
+					<button class="contact-form-btn"> Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
 </html>
