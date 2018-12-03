@@ -1,39 +1,8 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
 ini_set('display_errors' , true);
-include('info.php');
 
-session_start();
-
-if(!isset($_SESSION['logged'])){
-	echo"<br> Login First...<br><br>";
-	header("refresh:1;url=form1.html");
-	exit();
-}
-
-$email=$_SESSION["email"];
-
-
-try{
-	$conn = new PDO("mysql:host=$servername;dbname=aa986", $username, $password);
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$query='SELECT * FROM questions';
-	$st=$conn->prepare($query);
-	$st->execute();
-	$questions=$st->fetchAll();
-	$st->closeCursor();
-	
-}
-catch(PDOException $e){
-	echo "<br> connection failed: ". $e->getMessage();
-}
-$conn = null;
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login</title>
-</head>
+include ('header.php');?>
 <style>
 table,td{
 	border:1px black solid;
@@ -48,7 +17,7 @@ tr.title{
 
 		<div class="wrap-contact">
 			<div class="contact-form-title">
-				Welcome
+				<?php echo  $_SESSION['fname']." ".$_SESSION["lname"];?>
 			</div>
 			<table>
 			<tr class="title">

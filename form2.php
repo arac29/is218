@@ -1,3 +1,47 @@
+<?php include ('view/header.php');?>
+<div class="container-contact">
+
+		<div class="wrap-contact">
+			<form class="contact-form validate-form" action="form2.php">
+				<span class="contact-form-title">
+					New Account
+				</span>
+
+				<div class="wrap-input validate-input" data-validate="Please enter first name">
+					<input class="input" type="text" name="first" placeholder="First Name">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate="Please enter your name">
+					<input class="input" type="text" name="last" placeholder="Last Name">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate = "(YYYY-MM-DD)">
+					<input class="input" type="text" name="bday" placeholder="Birthday: (YYYY-MM-DD)">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate = "Email is required">
+					<input class="input" type="text" name="email" placeholder="Email">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="wrap-input validate-input" data-validate = "Please enter password">
+					<input class="input" type="text" name="pass" placeholder="Password">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="container-contact-form-btn">
+					<button class="contact-form-btn"> Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
 ini_set('display_errors' , 1);
@@ -41,7 +85,7 @@ if (!$flag){
 		$_SESSION['logged']=true;
 		$_SESSION["email"]=$email;
 		////REDIRECT TO DISPLAY
-		header("refresh:1; url=display.php");
+		header("refresh:5; url=display.php");
 	}
 	catch(PDOException $e){
 		echo "<br> connection failed: ". $e->getMessage();
@@ -51,7 +95,7 @@ if (!$flag){
 }
 else{
 	echo "<h2> Invalid input, please try again! </h2> <br> redirecting ...";
-	header("refresh:1; url=form2.html");
+	header("refresh:9; url=form2.php");
 }
 
 ?>

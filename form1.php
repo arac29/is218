@@ -1,9 +1,44 @@
+<?php include ('view/header.php');?>
+
+
+	<div class="container-contact">
+
+		<div class="wrap-contact">
+			<form class="contact-form validate-form" action="." method="post">
+				<span class="contact-form-title">
+					Login
+				</span>
+
+				<div class="wrap-input validate-input" data-validate="Please enter your name">
+					<input class="input" type="text" name="email" placeholder="Email">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input validate-input" data-validate = "Please enter password">
+					<input class="input" type="text" name="pass" placeholder="Password">
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="container-contact-form-btn">
+					<button class="contact-form-btn">
+						<span>
+							Submit
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
 ini_set('display_errors' , true);
 include('info.php');
-$email= $_GET["email"]; 
-$pass= $_GET["pass"];
+$email= $_POST["email"]; 
+$pass= $_POST["pass"];
 $flag=false;
 
 if (empty($email)){ 
@@ -33,6 +68,7 @@ if (!$flag){
 		$stmt->execute();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$id=$row['id'];
+
 		if( ! $row){
 			header ("refresh:1; url=form1.html" ); 
 			die('<h2> Cannot authenticate! </h2>');
@@ -43,7 +79,11 @@ if (!$flag){
 			$_SESSION['logged']=true;
 			$_SESSION["email"]=$email;
 			$_SESSION['id']=$id;
-			header("refresh:1; url=display.php");
+			$_SESSION['fname']=$row['fname'];
+			$_SESSION['lname']=$row['lname'];
+			echo "Name: ". $_SESSION['fname']." ".$_SESSION["lname"];
+
+			header("refresh:9; url=display.php");
 		}
 	}
 	catch(PDOException $e){
@@ -53,3 +93,4 @@ if (!$flag){
 }
 
 ?>
+
