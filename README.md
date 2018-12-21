@@ -1,1 +1,1 @@
-First Project of IS-218
+MVC pattern
