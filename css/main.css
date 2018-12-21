@@ -212,12 +212,64 @@ textarea.input {
 table,td{
   border:1px black solid;
   background:#fff;;
+  left:1;
 }
 td{
   height: 42px;
-  padding: 0 5px 0 10px;
+  padding: 0 5px 0 0;
 }
 tr.title{
   font-weight:bold;
   text-align: center;
+}
+div.titles{
+  display: block;
+  font-size: 20px;
+  color: #403866;
+  line-height: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+div.display{
+  padding: 10px;
+}
+div.answer{
+  border: solid 1px black;
+  margin: 1%;
+  padding:2%;
+}
+.ans_btn{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2%;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 150px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 31px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+
+}
+.ans_btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 31px;
+  background-color: #827ffe;
+  pointer-events: none;
+  transition: all 0.4s;
 }
